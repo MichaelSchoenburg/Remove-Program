@@ -3,7 +3,10 @@
     Remove-Program
 
 .DESCRIPTION
-    Programme per Uninstall-Package deinstallieren. Achtung! Muss nicht mit allen Programmen funktionieren. Funktioniert nur, wenn das Programm unter Get-Package gelistet wird.
+    Programme per Uninstall-Package und Registry deinstallieren Achtung! Muss nicht mit allen Programmen funktionieren. Funktioniert nur, wenn das Programm unter Get-Package gelistet wird.
+    
+.LINK
+    https://github.com/MichaelSchoenburg/Remove-Program
 
 .NOTES
     Company: IT-Center Engels
