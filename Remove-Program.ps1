@@ -3,10 +3,7 @@
     Remove-Program
 
 .DESCRIPTION
-    Programme per Uninstall-Package und Registry deinstallieren Achtung! Muss nicht mit allen Programmen funktionieren. Funktioniert nur, wenn das Programm unter Get-Package gelistet wird.
-
-.LINK
-    https://github.com/MichaelSchoenburg/Remove-Program
+    Programme per Uninstall-Package deinstallieren. Achtung! Muss nicht mit allen Programmen funktionieren. Funktioniert nur, wenn das Programm unter Get-Package gelistet wird.
 
 .NOTES
     Company: IT-Center Engels
@@ -54,7 +51,7 @@
 Write-Output "String zur Suche nach Packages (in Anführungszeichen): `"$Programmname`""
 
 Write-Output "Durchsuche Registry..."
-$e = (Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | ForEach-Object {Get-ItemProperty $_.PSPath}).Where({$_.DisplayName -like "*$Programmname*"})
+$e = (Get-ChildItem -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | ForEach-Object {Get-ItemProperty $_.PSPath}).Where({$_.DisplayName -like "*$Programmname*"})
 
 if ($e) {
     Write-Output "Folgende Hives wurden gefunden:"
